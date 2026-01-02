@@ -46,7 +46,7 @@ function palendrome(str) {
     }
 
     if (arrStr[start].toLowerCase() !== arrStr[end].toLowerCase()) {
-      return false 
+      return false
     }
 
     start++
@@ -60,7 +60,7 @@ function palendrome(str) {
 // console.log(twoSumArraySroted([2,7,11,15], 13))
 //  console.log(twoSummArraySortedBetween([2,7,11,15], 13))
 
-function twoSumArraySroted (arr, summ) {
+function twoSumArraySroted(arr, summ) {
 
   let start = 0
   let end = 1
@@ -69,23 +69,23 @@ function twoSumArraySroted (arr, summ) {
     const summArr = arr[start] + arr[end]
     if (summArr > summ) {
       start++
-    
-    } 
+
+    }
     if (summArr < summ) {
       if (end == arr.length - 1) {
         start++
       } else {
-         end++
-      }    
-    } 
+        end++
+      }
+    }
     if (summArr === summ) {
       return [start + 1, end + 1]
-    } 
+    }
   }
 }
 
 // O(n)
-function twoSummArraySortedBetween (arr, summ) {
+function twoSummArraySortedBetween(arr, summ) {
   let start = 0
   let end = arr.length - 1
 
@@ -119,11 +119,11 @@ function ThreeSum(arr) {
     while (left < right) {
       const currentSumm = sortedArr[left] + sortedArr[right]
       if (currentSumm === -target) {
-        result.add(JSON.stringify([sortedArr[left] , sortedArr[right], target ]))
+        result.add(JSON.stringify([sortedArr[left], sortedArr[right], target]))
       }
 
       if (currentSumm > -target) {
-        right-- 
+        right--
       } else {
         left++
       }
@@ -144,27 +144,27 @@ function ThreeSum(arr) {
 
 function SqueresOfSortedArray(arr) {
 
-    let start = 0
-    let end = arr.length - 1
+  let start = 0
+  let end = arr.length - 1
 
-    let result = []
+  let result = []
 
-    for (let i = arr.length - 1; i >= 0; i--) {
-      const startValue = arr[start]**2
-      const endValue =  arr[end]**2
+  for (let i = arr.length - 1; i >= 0; i--) {
+    const startValue = arr[start] ** 2
+    const endValue = arr[end] ** 2
 
 
 
-        if (startValue >= endValue) {
-          result[i] = startValue
-          start++
-        } else {
-          result[i] = endValue
-          end--
-      }
+    if (startValue >= endValue) {
+      result[i] = startValue
+      start++
+    } else {
+      result[i] = endValue
+      end--
     }
+  }
 
-    return result
+  return result
 
 }
 
@@ -172,7 +172,7 @@ function SqueresOfSortedArray(arr) {
 // console.log(bottle([1,8,6,2,5,4,8,3,7]))
 // 49
 
-function bottle(arr) {
+function bottleSize(arr) {
 
   let start = 0
   let end = arr.length - 1
@@ -201,23 +201,23 @@ function bottle(arr) {
 }
 
 
-console.log(removeDublicates([1,1,1,2,2,3,3,3,4,5,5]))
+console.log(removeDublicates([1, 1, 1, 2, 2, 3, 3, 3, 4, 5, 5]))
 // [1,1,1,2,2,3,3,3,4,5,5]
-  //                   4*
-  
-  //                      5*
+//                   4*
+
+//                      5*
 
 
-  //  1234     
+//  1234     
 function removeDublicates(arr) {
 
-  
+
   let result = []
-    let k = 0
-     arr.forEach((val, index) => {
-      if (val !== arr[k] )
-        k++
-        result[k] = val
-     }) 
+  let k = 0
+  arr.forEach((val, index) => {
+    if (val !== arr[k])
+      k++
+    result[k] = val
+  })
 
 }
