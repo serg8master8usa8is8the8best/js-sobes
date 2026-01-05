@@ -17,26 +17,6 @@ function mitingsTask(arr) {
     return true;
 }
 
-// console.log(mergeIntervals([[1, 3], [2, 6], [8, 10], [15, 18]]))
-
-function mergeIntervals(arr) {
-    const sorgedArr = arr.sort((a, b) => a[0] - b[0]);
-    let merged = [sorgedArr[0]];
-
-    for (let i = 1; i <= sorgedArr.length - 1; i++) {
-        let current = sorgedArr[i];
-        let prev = merged.at(-1);
-
-        if (current[0] <= prev[1]) {
-            prev.at(-1)[1] = Math.max(prev[1], current[1]);
-        } else {
-            merged = [...merged, current];
-        }
-    }
-
-    return merged;
-}
-
 // console.log(intervalUserVisiters([[0, 2], [5, 10], [13, 23], [24, 25]], [[1, 5], [8, 12], [15, 24], [25, 26]]))
 
 // [[0, 2], [5, 10], [13, 23], [24, 25]]
@@ -83,4 +63,65 @@ function intervalUserVisiters(user1, user2) {
     return result;
 }
 
+// console.log(mergedIntervals([[1, 3], [2, 6], [5, 10], [15, 18]]))
 
+
+function mergedIntervals(arr) {
+    const sortedArr = arr.sort((a, b) => a[0] - b[0])
+    let merged = [arr[0]]
+
+    for (let i = 1; i < sortedArr.length; i++) {
+
+        let prevMerged = merged.at(-1)
+
+        let current = sortedArr[i]
+
+        if (prevMerged[1] >= current[0]) {
+
+            merged.at(-1)[1] = Math.max(current[1], prevMerged[1])
+
+        } else {
+            merged = [...merged, current]
+        }
+
+    }
+
+    return merged
+}
+
+// console.log(insertIntervals([[1, 3], [6, 9]], [2, 5]))
+// [[1,5], [6,9]]
+
+function insertIntervals(arr, newInterval) {
+    const result = [];
+    let i = 0;
+    const n = intervals.length;
+
+    // 1. Добавляем все интервалы, которые полностью до нового интервала
+    while (i < n && intervals[i][1] < newInterval[0]) {
+        result.push(intervals[i]);
+        i++;
+    }
+
+    // 2. Мерджим все пересекающиеся интервалы
+    while (i < n && intervals[i][0] <= newInterval[1]) {
+        newInterval[0] = Math.min(newInterval[0], intervals[i][0]);
+        newInterval[1] = Math.max(newInterval[1], intervals[i][1]);
+        i++;
+    }
+    result.push(newInterval);
+
+    // 3. Добавляем оставшиеся интервалы
+    while (i < n) {
+        result.push(intervals[i]);
+        i++;
+    }
+
+    return result;
+}
+
+// console.log(meetingRoomCount([[0, 30], [5, 10], [15, 20]]))
+
+function meetingRoomCount(arr, current) {
+
+}

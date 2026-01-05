@@ -153,8 +153,6 @@ function SqueresOfSortedArray(arr) {
     const startValue = arr[start] ** 2
     const endValue = arr[end] ** 2
 
-
-
     if (startValue >= endValue) {
       result[i] = startValue
       start++
@@ -201,7 +199,7 @@ function bottleSize(arr) {
 }
 
 
-console.log(removeDublicates([1, 1, 1, 2, 2, 3, 3, 3, 4, 5, 5]))
+// console.log(removeDublicates([1, 1, 1, 2, 2, 3, 3, 3, 4, 5, 5]))
 // [1,1,1,2,2,3,3,3,4,5,5]
 //                   4*
 
@@ -210,8 +208,6 @@ console.log(removeDublicates([1, 1, 1, 2, 2, 3, 3, 3, 4, 5, 5]))
 
 //  1234     
 function removeDublicates(arr) {
-
-
   let result = []
   let k = 0
   arr.forEach((val, index) => {
@@ -219,5 +215,26 @@ function removeDublicates(arr) {
       k++
     result[k] = val
   })
+}
+
+
+console.log(moveZeroes([0, 1, 0, 3, 12]))
+
+function moveZeroes(arr) {
+  let start = 0
+  let end = arr.length - 1
+  let res = []
+
+  if (arr.length === 1) {
+    return arr
+  }
+
+  while (start < end) {
+
+    if (arr[start] == 0) {
+
+    }
+  }
+
 
 }
