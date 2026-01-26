@@ -1,5 +1,4 @@
 function replaceString(str, search, replace) {
-
     const sLen = search.length
 
     let result = ''
@@ -14,28 +13,23 @@ function replaceString(str, search, replace) {
     }
 
     return result
-    
 }
 
 // console.log(replaceString('Hello world world Hello', 'world', 'there'))
 
-
-
-
-Array.prototype.myFilter = function(cb) {
+Array.prototype.myFilter = function (cb) {
     const result = []
 
     for (let i = 0; i < this.length; i++) {
-        if(cb(this[i], i, this)) {
+        if (cb(this[i], i, this)) {
             result.push(this[i])
         }
     }
 
     return result
-
 }
 
-const arr = [1,2,3,4,5]
+const arr = [1, 2, 3, 4, 5]
 
 // console.log(arr.myFilter(x => x > 2))
 
@@ -48,14 +42,14 @@ function promisify(fn) {
         return new Promise((resolve, reject) => {
             fn(...args, (err, result) => {
                 if (err) reject(err)
-                    resolve(result)
+                resolve(result)
             })
         })
     }
 }
 
-function exampleCallbackFunction(a,b,callback) {
-    if (a < 0 || b <0) {
+function exampleCallbackFunction(a, b, callback) {
+    if (a < 0 || b < 0) {
         callback(new Error('arguments shout be '))
     } else {
         callback(null, a + b)
@@ -64,4 +58,6 @@ function exampleCallbackFunction(a,b,callback) {
 
 const exmaplePromiseFunction = primisify(exampleCallbackFunction)
 
-exampleCallbackFunction(1,2).then((res) => console.log(res)).catch(err => console.log(err))
+exampleCallbackFunction(1, 2)
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err))
