@@ -8,41 +8,44 @@ findPath('A', 'N', fetchFlights) // Promise.resolve(['A', 'B', 'N'])
 findPath('A', 'S', fetchFlights) // Promise.resolve(['A', 'D', 'F', 'S'])
 findPath('B', 'S', fetchFlights) // Promise.reject(new Error('No way'))
 // Функция поиска составного авиабилета
-
-// Функция поиска составного авиабилета
 async function findPath(from, to, fetchFlights) {
     const queue = [from]
     const routes = new Map()
 
-    cons
-
-    // Для стартовой точки маршрут - только она сама
     routes.set(from, [from])
 
     while (queue.length > 0) {
-        const node = queue.shift() // Используем BFS (ширину)
+        const node = queue.pop()
 
-        // Если достигли цели
-        if (node === to) {
-            return routes.get(node)
-        }
-
-        // Получаем соседние города из текущего узла
         const neighbors = await fetchFlights(node)
 
         if (!neighbors) continue
 
+        const currentRoute = routes.get(node)
+
         for (const neighbor of neighbors) {
-            // Если город еще не посещали
             if (!routes.has(neighbor)) {
-                // Сохраняем маршрут до соседа
-                routes.set(neighbor, [...routes.get(node), neighbor])
-                // Добавляем в очередь для дальнейшего поиска
                 queue.push(neighbor)
+            }
+
+            routes.set(neighbor, node)
+
+            if (to === neighbor) {
+                let startPoint = routes.get(neighbor)
+
+                if (!startPoint) return Promise.resolve([to])
+
+                let result = [to, startPoint]
+
+                while (startPoint !== from) {
+                    startPoint = routes.get(startPoint)
+                    result.push(startPoint)
+                }
+
+                return Promise.resolve(routes.get(result.reverse()))
             }
         }
     }
 
-    // Если путь не найден
-    return Promise.reject(new Error('No way'))
+    return Promise.reject('no way')
 }
