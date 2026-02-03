@@ -17,7 +17,7 @@ const valueFromObject = (obj, pathArr, index) => {
         return obj[currPath]
     }
 
-    return valueFromObject(obj[currPath], pathArr, ++index)
+    return valueFromObject(obj[currPath], pathArr, index + 1)
 }
 
 const getValueByPath = (obj, path) => {
