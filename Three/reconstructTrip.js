@@ -61,8 +61,32 @@ function reconstructTrip2(tickets) {
     }
 }
 
+function getRoute(tickets) {
+    let routes = {}
+
+    for (let ticket of tickets) {
+        routes[ticket.from] = ticket.to
+    }
+    let start
+    for (let [key, value] of Object.entries(routes)) {
+        if (!Object.values(routes).includes(key)) {
+            start = key
+        }
+    }
+
+    let result = []
+
+    for (let item of tickets) {
+        result.push({ from: start, to: routes[start] })
+        start = routes[start]
+    }
+
+    return result
+
+};
+
 console.log(
-    reconstructTrip2([
+    getRoute([
         { from: 'Череповец', to: 'Москва' },
         { from: 'Москва', to: 'Спб' },
         { from: 'Спб', to: 'Минск' },

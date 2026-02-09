@@ -27,11 +27,45 @@ function compress(list) {
     return result.map((res) => res instanceof Array ? res.join('-') : res).join(',')
 }
 
+function compress2(list) {
+    if (!list.length) {
+        return []
+    }
+
+    let sortedArr = [...list].sort((a, b) => a - b)
+
+    let result = []
+
+    let start = 0
+
+    for (let end = 1; end <= sortedArr.length; end++) {
+        if (end < sortedArr.length && sortedArr[end] - sortedArr[end - 1] === 1) {
+            continue
+        } else {
+            if (end - start === 1) {
+                result.push(sortedArr[start])
+            } else {
+                result.push([sortedArr[start], sortedArr[end - 1]])
+            }
+
+            start = end
+        }
+    }
+
+    return result.map((item) => {
+        if (Array.isArray(item)) {
+            return item.join('-')
+        } else {
+            return item
+        }
+    }).join(',')
+}
+
 // [
 //   0, 1, 2,  3, 4, 5, 8, 9, 11
 
 // ]
 
 
-console.log(compress([1, 4, 5, 2, 3, 9, 8, 11, 0]))
-console.log(compress([1, 4, 3, 2]))
+console.log(compress2([1, 4, 5, 2, 3, 9, 8, 11, 0]))
+console.log(compress2([1, 4, 3, 2]))

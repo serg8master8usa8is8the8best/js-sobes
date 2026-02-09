@@ -4,26 +4,53 @@ function deepClone(obj) {
     }
 }
 
+// function deepClone(obj) {
+//     // Базовый случай: если это примитив или null, возвращаем как есть
+//     if (obj === null || typeof obj !== 'object') {
+//         return obj
+//     }
+
+//     // Обработка массива
+//     if (Array.isArray(obj)) {
+//         return obj.map((item) => deepClone(item))
+//     }
+
+//     // Обработка обычного объекта
+//     const clonedObj = {}
+
+//     for (let key of Object.keys(obj)) {
+//         // Проверяем, чтобы копировать только собственные свойства
+//         if (obj.hasOwnProperty(key)) {
+//             clonedObj[key] = deepClone(obj[key])
+//         }
+//     }
+
+//     return clonedObj
+// }
+
+
 function deepClone(obj) {
-    // Базовый случай: если это примитив или null, возвращаем как есть
+    // проверить на объект
     if (obj === null || typeof obj !== 'object') {
         return obj
     }
 
-    // Обработка массива
+    // проверить на массив и его смапить
+
     if (Array.isArray(obj)) {
         return obj.map((item) => deepClone(item))
     }
 
-    // Обработка обычного объекта
-    const clonedObj = {}
+    const cloneObj = {}
 
+    // копируем каждый ключ и вызываем на него рекурсию, 
+    // которая если что вернет примитив или обработает массив 
     for (let key of Object.keys(obj)) {
-        // Проверяем, чтобы копировать только собственные свойства
-        if (obj.hasOwnProperty(key)) {
-            clonedObj[key] = deepClone(obj[key])
-        }
+        cloneObj[key] = deepClone(obj[key])
     }
 
-    return clonedObj
+    // возвращаем копируемый объект 
+    return cloneObj
+
+
 }
