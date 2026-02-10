@@ -7,6 +7,17 @@ const FLIGHTS = {
 
 const fetchFlights = (from) => Promise.resolve(FLIGHTS[from]);
 
+
+// создаем stack из from, path
+
+// пока есть stack берем из него элемент
+
+// запрашиваем по нему путь
+
+// пушим новый путь по элементу 
+
+// если элемент тот, который нужен, то return 
+
 async function findPath(from, to, fetchFlights) {
     if (from === to) {
         return [from]

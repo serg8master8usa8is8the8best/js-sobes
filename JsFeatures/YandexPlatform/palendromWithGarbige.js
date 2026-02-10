@@ -1,7 +1,9 @@
-const isLetter =  (str) => {
+const isLetter = (str) => {
     return str.toLowerCase() !== str.toUpperCase()
 }
 
+
+// тут просто 2 указателя и проверка символов на toLowerCase() toUpperCase()
 
 function isPalendrome(str) {
 
@@ -18,7 +20,7 @@ function isPalendrome(str) {
             continue
         }
 
-       if (!isLetter(str[left])) {
+        if (!isLetter(str[left])) {
             right = --right
             continue
         }

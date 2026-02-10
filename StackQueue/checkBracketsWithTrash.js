@@ -6,6 +6,12 @@ const brackets = new Map([
 
 const charPari = '{([])}'
 
+// создаем пары и все пары
+
+// только их пушим в stack и берем оттуда 
+
+// если stack пустой, то все ок 
+
 function checkBrackets(str) {
     let stack = []
 

@@ -1,3 +1,10 @@
+
+// просто по условию задачи считаем максимальную длинну и сумму 
+
+// для чисел проверяем isNaN(Number(word.trim()))
+
+// возвращаем максимальное 
+
 export const maximumValue = (words) => {
     let maxLength = 0
     let maxNumber = 0

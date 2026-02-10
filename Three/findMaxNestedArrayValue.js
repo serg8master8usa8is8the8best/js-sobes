@@ -1,3 +1,10 @@
+
+// сравниваем maxLevel и maxValue 
+
+// если это массив, то пушим
+
+// если значение, то проверяем 
+
 function findDeepestMaxElement(array) {
 
     let stack = [[array, 0]]

@@ -9,6 +9,12 @@ allSettled([
     console.log('res', res)
 })
 
+// проверяем длинну промиса 
+// создаем массив фиксированной длинны
+// обходим все и оборачиваем в Promise.resolve()
+// кладем в массив по индекусу и подписываемся на обработчик
+// в finaly считаем - закончился ли count 
+
 function allSettled(promises) {
     if (promises.length === 0) {
         return Promise.resolve([])

@@ -1,5 +1,7 @@
 
 
+// сортируем и добавляем в merged первый элемент
+// сравниваем с последним merged 
 
 function mergedIntervals(arr) {
     const sortedArr = arr.sort((a, b) => a[0] - b[0])

@@ -1,3 +1,11 @@
+// проходимся по i = 1 < length
+
+// если prev < current и увеличивается 
+
+// если prev > current и уменьшается 
+
+// если равны, то дальше 
+
 function isMonotinic(number) {
     let isUp = false
     let isDown = false

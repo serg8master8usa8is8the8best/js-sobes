@@ -1,3 +1,12 @@
+
+// задаем isThrottle и prevArgs
+
+// если throttle, то складируем прошлые аргументы и this 
+
+// если можно вызвать, то вызываем и сбрасываем аргументы - вызывая callBack с Timeout
+
+// в таймауте сбрасываем throttle и смтотрим - если есть аргументы, то вызываем и опыть кидаем ожидание с Timer 
+
 function throttle(fn, delay, ctx) {
 
     let isThrottle = false

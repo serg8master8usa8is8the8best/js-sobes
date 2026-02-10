@@ -13,6 +13,15 @@ retry(test, { count: 5, delay: (retryCount) => retryCount * 1000 })
     .then((res) => console.log('res', res))
     .catch((err) => console.log('err', err))
 
+
+// заводим count и delay из параметров 
+
+// заводим функцию cathPromise и tryPromise
+
+// tryPromise вызывает промис и оборачивает в catch - если успех, то резолвит - если нет, то вызывает cathPromise
+
+// catchPromise сравнивает count и реджектит - если таймер прошел, то вызывает еще раз tryPromise()
+
 function retry(promiseFn, config) {
     const { count, delay } = config
 
@@ -46,8 +55,5 @@ function retry(promiseFn, config) {
             }
 
         }
-
-
-
     })
 }

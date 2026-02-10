@@ -1,6 +1,7 @@
+// тут только отсортировать и вернут result через Set(result)
+
+
 function getConcated(arr) {
-
-
     let sortedArr = arr.sort((a, b) => a.order - b.order)
 
     let result = ''

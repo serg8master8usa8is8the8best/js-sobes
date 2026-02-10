@@ -61,6 +61,16 @@ function reconstructTrip2(tickets) {
     }
 }
 
+// задаем мапу путей
+
+// проходимся по ключам и ищем первый
+
+// если среди значений объекта нету ключа, то start = key 
+
+// проходимся по элементам 
+
+// заполняем start - finish 
+
 function getRoute(tickets) {
     let routes = {}
 

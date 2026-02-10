@@ -1,3 +1,7 @@
+// тоже самое - по мапе идем и кладем отсортированные ключи 
+
+// пушим в массив 
+
 function groupAnagrams(arr) {
     const map = new Map()
     for (let item of arr) {

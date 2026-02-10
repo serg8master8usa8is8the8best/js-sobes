@@ -1,3 +1,10 @@
+
+// проходимся по каждому и разбиваем по разделителю
+
+// фильтруем пустые части 
+
+// возвращаем result 
+
 const splitWordsBySeparator = (words, separator) => {
     const result = []
 

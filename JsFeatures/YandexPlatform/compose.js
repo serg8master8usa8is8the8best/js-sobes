@@ -2,6 +2,14 @@ const square = (x) => x * x
 const time2 = (x) => x * 2
 const sum = (a, b) => a + b
 
+// создаем resolve
+
+// обходим функции в обратном порядке 
+
+// если это первая функция, то делаем обработку на 2 аргумента
+
+// для всех последующих, просто применяем их на resolve 
+
 const compose = (...funcs) => {
     return (...nums) => {
         let res = 0

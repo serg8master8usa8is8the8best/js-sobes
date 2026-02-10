@@ -1,5 +1,12 @@
 // args, object, array, string, number, bool
 
+
+// создаем мапу 
+
+// если по строке аргументов есть занчение, то возвращаем его
+
+// если нет, то вызываем функцию и кладем значения 
+
 function memoize(fn) {
     const cache = new Map()
 

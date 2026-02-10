@@ -1,3 +1,6 @@
+
+// просто смотрим на count в функции и если все, то reject 
+
 export async function fetchWithAutoRetry(fetcher, count) {
     return new Promise((resolve, reject) => {
         function tryToFetch(currentCount) {

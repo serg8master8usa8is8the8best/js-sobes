@@ -1,3 +1,9 @@
+
+// создаем мапу и наполняем ее популярными значениями 
+
+// делаем Array.from и сортируем самые популярные 
+
+
 function topKFrequent(nums, k) {
     let map = new Map()
 

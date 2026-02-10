@@ -27,6 +27,17 @@ function compress(list) {
     return result.map((res) => res instanceof Array ? res.join('-') : res).join(',')
 }
 
+// сортируем массив
+
+// 1указатель на 0, второй на 1 и перебираем до <= length
+
+// если это не последний элемент или i - (i-1) = 1 , то продолжаем 
+
+// проверяем длинну разницы и пушим по start или start (end - 1)
+// задаем start на end 
+
+// проходимся по результату и мапим значения 
+
 function compress2(list) {
     if (!list.length) {
         return []

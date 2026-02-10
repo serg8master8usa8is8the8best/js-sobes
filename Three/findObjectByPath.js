@@ -8,6 +8,8 @@ const THEME = {
     },
 }[(text, basic, primary)]
 
+// берем текущий путь из массива и проходим по объекту 
+
 const valueFromObject = (obj, pathArr, index) => {
     const currPath = pathArr[index]
 
